@@ -12,7 +12,7 @@ export function SignInButton() {
     </button>
   ) : (
     <button
-      className="flex flex-row font-sans rounded-full bg-gray-900 border-0 p-2 text-center justify-center font-bold"
+      className="flex flex-row font-sans rounded-full bg-slate-700 border-0 p-2 text-center justify-center font-bold box-border"
       type="button"
       onClick={() => signIn("github")}
     >
