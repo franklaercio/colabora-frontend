@@ -12,12 +12,12 @@ export function SignInButton() {
     </button>
   ) : (
     <button
-      className="flex flex-row font-sans rounded-full bg-slate-700 border-0 p-2 text-center justify-center font-bold box-border"
+      className="flex flex-row items-center align-middle rounded-full bg-slate-700 border-0 p-2 box-border h-8"
       type="button"
       onClick={() => signIn("github")}
     >
-      <Fingerprint className="pr-3 w-3/5 h-3/5 text-yellow" />
-      Entrar
+      <Fingerprint className="pr-3 text-yellow" size={40} />
+      <span className="font-sans font-bold">Entrar</span>
     </button>
   );
 }
