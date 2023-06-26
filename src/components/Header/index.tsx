@@ -1,6 +1,6 @@
+"use client";
 import Image from "next/image";
 
-import { ActiveLink } from "../ActiveLink";
 import Link from "next/link";
 import { SignInButton } from "../SignInButton";
 
