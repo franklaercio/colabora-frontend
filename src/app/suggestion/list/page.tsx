@@ -51,7 +51,7 @@ export default async function Suggestions() {
   const data = await getSuggestions();
 
   return (
-    <main className="mt-2 max-w-screen-xl m-auto h-screen p-4 sm:p-6 md:p-8">
+    <main className="mt-2 max-w-screen-xl m-auto h-screen p-4 md:p-6 lg:p-8">
       <div className="inline-table justify-between sm:flex flex-row">
         <div className="flex flex-col font-sans font-bold md:flex text-2xl">
           <p>Olá, Frank!</p>

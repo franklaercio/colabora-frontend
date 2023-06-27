@@ -31,8 +31,8 @@ export default function Login() {
   };
 
   return (
-    <main className="mt-2 max-w-screen-xl m-auto h-screen md:mt-8">
-      <div className="text-center font-bold text-5xl mb-4 mt-8 sm:mb-4 md:mb-6">
+    <main className="mt-2 max-w-screen-xl m-auto h-screen p-4 md:p-6 lg:p-8">
+      <div className="text-center font-bold text-4xl mb-4 mt-8 sm:mb-4 md:mb-6">
         <p>
           Faça <span className="text-yellow">login </span>
           <span className="hidden md:inline">
@@ -57,7 +57,7 @@ export default function Login() {
           <form
             id="form-login"
             onSubmit={handleSubmit}
-            className="w-5/6 md:w-2/3"
+            className="w-full md:w-2/3 lg:w-5/6"
           >
             <div className="mb-4">
               <label htmlFor="email" className="block mb-2 font-medium">

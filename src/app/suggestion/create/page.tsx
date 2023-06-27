@@ -12,15 +12,15 @@ export default function CreateSuggestion() {
   };
 
   return (
-    <main className="mt-2 max-w-screen-xl m-auto h-screen p-8 md:mt-8">
-      <div className="text-center font-bold text-5xl mb-4 mt-8 sm:mb-4 md:mb-6">
+    <main className="mt-2 max-w-screen-xl m-auto h-screen p-4 md:p-6 lg:p-8">
+      <div className="text-center font-bold text-5xl mb-4 mt-4 sm:mb-4 md:mb-6">
         <p>Submeter Proposta</p>
       </div>
       <div className="flex flex-col items-center justify-center w-full sm:mt-20">
         <form
           id="form-login"
           onSubmit={handleSubmit}
-          className="w-5/6 md:w-2/3"
+          className="w-full md:w-2/3 lg:w-5/6"
         >
           <div className="mb-4">
             <label htmlFor="text" className="block mb-2 font-medium">
