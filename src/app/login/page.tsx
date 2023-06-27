@@ -1,15 +1,33 @@
 "use client";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // Lógica de autenticação aqui
+
+    const response = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
+
+    if (!response?.error) {
+      router.push("/suggestion/list");
+    } else {
+      toast.error("Sorry, authentication failed!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
   };
 
   return (
@@ -18,11 +36,11 @@ export default function Login() {
         <p>
           Faça <span className="text-yellow">login </span>
           <span className="hidden md:inline">
-            ou crie <span className="text-yellow"> sua conta</span>
+            ou <span className="text-yellow">crie</span> sua conta
           </span>
         </p>
         <p className="md:hidden">
-          crie <span className="text-yellow">sua conta</span>
+          ou <span className="text-yellow">crie</span> sua conta
         </p>
       </div>
       <div className="flex items-center justify-between">
@@ -84,6 +102,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </main>
   );
 }
