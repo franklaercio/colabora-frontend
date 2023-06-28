@@ -15,13 +15,12 @@ export default function CreateSuggestion() {
     try {
       const categoryData = await api.get("/category?name=" + categorySelected);
 
-      const data = new FormData();
-      data.append("title", title);
-      data.append("content", description);
-      data.append("authorId", "649a62c035347be1ac105dc8");
-      data.append("categoryId", categoryData.data.data[0]._id);
-
-      const response = await api.post("/suggestion", data);
+      const response = await api.post("/suggestion", {
+        title: title,
+        content: description,
+        authorId: "649a62c035347be1ac105dc8",
+        categoryId: categoryData.data.data[0],
+      });
 
       if (response.status === 200) {
         toast.success("Sugestão submetida com sucesso!", {
