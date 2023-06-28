@@ -30,7 +30,7 @@ export function Header() {
                 Submeter Proposta
               </Link>
             )}
-            <Link href="/posts">Sobre</Link>
+            <Link href="/about">Sobre</Link>
           </nav>
         </div>
         <SignInButton />

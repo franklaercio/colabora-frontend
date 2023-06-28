@@ -15,20 +15,13 @@ export default function CreateSuggestion() {
     try {
       const categoryData = await api.get("/category?name=" + categorySelected);
 
-      const response = await api.post("/suggestion", {
-        body: JSON.stringify({
-          title: title,
-          content: description,
-          authorId: "649a62c035347be1ac105dc8",
-          categoryId: categoryData.data.name,
-        }),
-        mode: "no-cors",
-        withCredentials: false,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      });
+      const data = new FormData();
+      data.append("title", title);
+      data.append("content", description);
+      data.append("authorId", "649a62c035347be1ac105dc8");
+      data.append("categoryId", categoryData.data.data[0]._id);
+
+      const response = await api.post("/suggestion", data);
 
       if (response.status === 200) {
         toast.success("Sugestão submetida com sucesso!", {
@@ -48,7 +41,6 @@ export default function CreateSuggestion() {
 
   useEffect(() => {
     api.get("/category").then((response) => {
-      console.log(response);
       setCategory(response.data.categories);
     });
   }, []);
