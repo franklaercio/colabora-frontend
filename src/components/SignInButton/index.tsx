@@ -1,19 +1,24 @@
 "use client";
-import { Fingerprint, UserCircle } from "lucide-react";
+import { Fingerprint, LogOut } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { Loading } from "../Loading";
 
 export function SignInButton() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
+
+  if (status === "loading") {
+    return <Loading size={20} />;
+  }
 
   return session ? (
     <button
       className="flex items-center align-middle rounded-full border-0 box-border md:p-1"
       type="button"
-      onClick={() => signOut()}
+      onClick={() => signOut({ callbackUrl: "/login" })}
     >
-      <UserCircle className="text-yellow" size={35} />
+      <LogOut className="text-yellow" size={35} />
     </button>
   ) : (
     <button
