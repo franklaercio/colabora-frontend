@@ -1,7 +1,7 @@
 export default async function About() {
   return (
     <main className="mt-2 max-w-screen-xl m-auto h-screen p-4 md:p-6 lg:p-8">
-      <div className="justify-center text-center">
+      <div className="justify-center text-center pb-16">
         <p className="text-justify pb-4">
           Bem-vindo à tela principal da nossa aplicação dedicada ao seu
           condomínio! A tela inicial da nossa aplicação apresenta uma interface
